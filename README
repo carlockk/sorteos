@@ -9,9 +9,12 @@ conteo regresivo en JavaScript.
 - `src/db.php` conexión a MySQL (ajuste las credenciales según su entorno).
 
 ## Uso
-1. Configure su servidor web apuntando al directorio `public`.
-2. Cree una base de datos MySQL llamada `sorteos`.
-3. Ajuste las credenciales en `src/db.php`.
-4. Abra `index.php` en su navegador.
+1. Configure su servidor web apuntando al directorio `public` o ejecute
+   `php -S localhost:8000 -t public`.
+2. Ajuste las credenciales de MySQL en `src/db.php` si es necesario.
+3. Al iniciar la aplicación se creará automáticamente la base de datos y unas
+   tablas de ejemplo con datos.
+4. Abra `index.php` en su navegador y elija el proveedor para ingresar.
 
 Las integraciones reales con Instagram/Facebook y pagos están fuera del alcance de este ejemplo.
+

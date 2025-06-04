@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../src/db.php';
 if (isset($_SESSION['user'])) {
     header('Location: dashboard.php');
     exit;
