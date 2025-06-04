@@ -1,1 +1,17 @@
-INICIALIZANDO
+# Sorteos Demo
+
+Esta es una aplicación de ejemplo para gestionar sorteos.
+Incluye un flujo de inicio de sesión simulado, un panel básico y un
+conteo regresivo en JavaScript.
+
+## Estructura
+- `public/` archivos accesibles públicamente.
+- `src/db.php` conexión a MySQL (ajuste las credenciales según su entorno).
+
+## Uso
+1. Configure su servidor web apuntando al directorio `public`.
+2. Cree una base de datos MySQL llamada `sorteos`.
+3. Ajuste las credenciales en `src/db.php`.
+4. Abra `index.php` en su navegador.
+
+Las integraciones reales con Instagram/Facebook y pagos están fuera del alcance de este ejemplo.
