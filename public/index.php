@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once '../src/db.php';
 if (isset($_SESSION['user'])) {
     header('Location: dashboard.php');
     exit;
@@ -17,11 +16,8 @@ if (isset($_SESSION['user'])) {
 <body>
     <div class="container">
         <h1>Sorteos App</h1>
-        <p>Inicie sesión con su red social</p>
-        <a class="button" 
-           href="login.php?provider=facebook">Entrar con Facebook</a>
-        <a class="button" 
-           href="login.php?provider=instagram">Entrar con Instagram</a>
+        <p>Inicie sesión con Facebook para conectar su cuenta de Instagram.</p>
+        <a class="button" href="login.php">Entrar con Facebook</a>
     </div>
 </body>
 </html>

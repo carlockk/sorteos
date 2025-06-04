@@ -19,12 +19,15 @@ try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        provider VARCHAR(50) NOT NULL
+        provider VARCHAR(50) NOT NULL,
+        access_token TEXT,
+        instagram_id VARCHAR(50)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
     $pdo->exec("CREATE TABLE IF NOT EXISTS comments (
         id INT AUTO_INCREMENT PRIMARY KEY,
         user_id INT,
         post_id INT,
+        external_id VARCHAR(64),
         text TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id)
@@ -58,16 +61,16 @@ try {
     // insert demo data if tables are empty
     $count = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
     if ($count == 0) {
-        $pdo->exec("INSERT INTO users (name, provider) VALUES
-            ('Demo User','facebook'),
-            ('Otro Usuario','instagram')");
+        $pdo->exec("INSERT INTO users (name, provider, access_token, instagram_id) VALUES
+            ('Demo User','facebook',NULL,NULL),
+            ('Otro Usuario','instagram',NULL,NULL)");
         $pdo->exec("INSERT INTO posts (external_id, caption) VALUES
             ('abc123','Foto de playa'),
             ('def456','Video promocional')");
-        $pdo->exec("INSERT INTO comments (user_id, post_id, text) VALUES
-            (1,1,'Comentario de prueba 1'),
-            (2,1,'Comentario de prueba 2'),
-            (1,2,'Comentario de prueba 3')");
+        $pdo->exec("INSERT INTO comments (user_id, post_id, external_id, text) VALUES
+            (1,1,'c1','Comentario de prueba 1'),
+            (2,1,'c2','Comentario de prueba 2'),
+            (1,2,'c3','Comentario de prueba 3')");
         $pdo->exec("INSERT INTO raffles (title, post_id) VALUES ('Sorteo de ejemplo',1)");
     }
 } catch (PDOException $e) {

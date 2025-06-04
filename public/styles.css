@@ -24,9 +24,16 @@ body {
     border: none;
     cursor: pointer;
 }
+#postSelect {
+    margin-top: 10px;
+}
 #countdown {
     font-size: 2em;
     margin-top: 10px;
+}
+#winner {
+    margin-top: 10px;
+    font-weight: bold;
 }
 .comments {
     width: 100%;
