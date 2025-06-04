@@ -33,8 +33,11 @@ body {
     margin-top: 15px;
     border-collapse: collapse;
 }
-.comments td {
+.comments th, .comments td {
     border: 1px solid #ddd;
     padding: 8px;
+}
+.comments th {
+    background: #f0f0f0;
 }
 

@@ -1,8 +1,9 @@
 # Sorteos Demo
 
-Esta es una aplicación de ejemplo para gestionar sorteos.
-Incluye un flujo de inicio de sesión simulado, un panel básico y un
-conteo regresivo en JavaScript.
+Esta es una aplicación de ejemplo para gestionar sorteos con PHP, MySQL,
+CSS y JavaScript. El sistema genera su base de datos automáticamente y
+permite elegir una publicación de ejemplo para realizar un sorteo.
+El ganador puede descargarse en PDF.
 
 ## Estructura
 - `public/` archivos accesibles públicamente.
@@ -16,5 +17,5 @@ conteo regresivo en JavaScript.
    tablas de ejemplo con datos.
 4. Abra `index.php` en su navegador y elija el proveedor para ingresar.
 
-Las integraciones reales con Instagram/Facebook y pagos están fuera del alcance de este ejemplo.
+Las integraciones reales con Instagram/Facebook y los medios de pago se dejan como ejercicio.
 

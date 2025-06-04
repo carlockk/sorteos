@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('raffle.php');
             const data = await res.json();
             if (data && data.name) {
-                winnerDiv.textContent = `Ganador: ${data.name} - ${data.text}`;
+                winnerDiv.innerHTML = `Ganador: ${data.name} - ${data.text} <br><a href="export.php?id=${data.id}">Descargar PDF</a>`;
             } else {
                 winnerDiv.textContent = 'No hay comentarios';
             }
