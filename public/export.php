@@ -7,7 +7,10 @@ if (!isset($_SESSION['user'])) {
     die('No session');
 }
 
-$winnerId = $_GET['id'] ?? 0;
+$winnerId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if (!$winnerId) {
+    die('Invalid id');
+}
 $stmt = $pdo->prepare('SELECT comments.text, users.name FROM comments JOIN users ON comments.user_id = users.id WHERE comments.id = ?');
 $stmt->execute([$winnerId]);
 $winner = $stmt->fetch();

@@ -30,7 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
         commentsTable.innerHTML = '<tr><th>Usuario</th><th>Comentario</th></tr>';
         for (const c of comments) {
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${c.username}</td><td>${c.text}</td>`;
+            const userTd = document.createElement('td');
+            userTd.textContent = c.username;
+            const textTd = document.createElement('td');
+            textTd.textContent = c.text;
+            row.appendChild(userTd);
+            row.appendChild(textTd);
             commentsTable.appendChild(row);
         }
     }

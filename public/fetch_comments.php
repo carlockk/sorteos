@@ -2,6 +2,7 @@
 session_start();
 require_once '../src/config.php';
 require_once '../src/db.php';
+require_once '../src/http.php';
 
 header('Content-Type: application/json');
 $token = $_SESSION['page_access_token'] ?? null;
@@ -11,7 +12,11 @@ if (!$token || !$postId) {
     exit;
 }
 $url = 'https://graph.facebook.com/v19.0/'.$postId.'/comments?fields=id,username,text&access_token='.$token;
-$data = json_decode(file_get_contents($url), true);
+$data = http_get_json($url);
+if (!empty($data['error'])) {
+    echo json_encode([]);
+    exit;
+}
 $comments = $data['data'] ?? [];
 // Store comments in DB
 foreach ($comments as $c) {
